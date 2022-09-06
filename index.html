@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<script type="module">
-import { add, minusone } from "./build/release.js";
-
-</script>
-</head>
-<body>
-    
-</body>
-<script>
-    document.body.innerHTML = minusone(70);
-</script>
+  <head>
+    <script type="module">
+      import { add, minusone, memory, readMemory } from './build/release.js'
+      const memoryArray = new Uint8Array(memory.buffer)
+      document.write(memoryArray[0])
+      document.write('<br/>')
+      memoryArray[2] = 255
+      document.write(readMemory(1))
+      document.write('<br/>')
+      document.write(readMemory(2))
+    </script>
+  </head>
+  <body></body>
 </html>
